@@ -1,16 +1,17 @@
 {
-  "name": "gdb-debug",
+  "name": "arm-none-eabi-gdb-debug",
   "main": "./lib/main",
   "version": "0.1.11",
-  "description": "gdb debugger interface for atom",
+  "description": "arm-none-eabi-gdb debugger interface for atom",
   "keywords": [
+    "arm",
     "gdb",
     "debug",
     "debugger"
   ],
-  "repository": "https://github.com/lloiser/gdb-debug",
+  "repository": "https://github.com/japina/arm-none-eabi-gdb-debug",
   "bugs": {
-    "url": "https://github.com/lloiser/gdb-debug/issues"
+    "url": "https://github.com/japina/arm-none-eabi-gdb-debug/issues"
   },
   "license": "MIT",
   "engines": {

@@ -36,7 +36,7 @@ class Panel extends React.Component {
 	render() {
 		// TODO: add the busy overlay if state == "busy" || "starting"
 		return <div className="gdb-debug-panel-root" style={{width: this.props.width}}>
-			<div className="gdb-debug-panel-resizer" onMouseDown={this.onResizeStart} />
+			<div className="arm-none-eabi-gdb-debug-panel-resizer" onMouseDown={this.onResizeStart} />
 			{this.renderCommands()}
 			{this.renderArgs()}
 			<div className="gdb-debug-panel-content">
@@ -46,7 +46,7 @@ class Panel extends React.Component {
 				{this.renderBreakpoints()}
 			</div>
 			<button type="button" onClick={this.props.onToggleOutput}
-				className="btn gdb-debug-btn-flat gdb-debug-panel-showoutput">
+				className="btn arm-none-eabi-gdb-debug-btn-flat arm-none-eabi-gdb-debug-panel-showoutput">
 				Toggle output panel
 			</button>
 		</div>;
@@ -54,10 +54,10 @@ class Panel extends React.Component {
 
 	renderCommands() {
 		const layout = Commands.getPanelCommands();
-		return <div className="gdb-debug-panel-commands">{layout.map(this.renderCommand, this)}</div>;
+		return <div className="arm-none-eabi-gdb-debug-panel-commands">{layout.map(this.renderCommand, this)}</div>;
 	}
 	renderCommand(cmd) {
-		return <button key={cmd.cmd} type="button" className="btn gdb-debug-btn-flat" title={cmd.title}
+		return <button key={cmd.cmd} type="button" className="btn arm-none-eabi-gdb-debug-btn-flat" title={cmd.title}
 			data-cmd={cmd.cmd} onClick={this.onCommandClick}>
 			{cmd.icon ? <span className={"icon-" + cmd.icon} /> : null}
 			{cmd.text}
@@ -68,7 +68,7 @@ class Panel extends React.Component {
 		return null;
 		/* TODO: is this supported in GDB?
 		return <div>
-			<input className="gdb-debug-panel-args native-key-bindings" value={this.props.args}
+			<input className="arm-none-eabi-gdb-debug-panel-args native-key-bindings" value={this.props.args}
 				placeholder="arguments passed to gdb after --" onChange={this.props.onArgsChange} />
 		</div>;
 		*/
@@ -122,12 +122,12 @@ class Panel extends React.Component {
 
 	renderExpandable(name, text, content) {
 		const expanded = this.state.expanded[name];
-		return <div className="gdb-debug-expandable" data-expanded={expanded}>
-			<div className="gdb-debug-expandable-header" onClick={this.onExpandChange.bind(this, name)}>
-				<span className={"gdb-debug-toggle icon icon-chevron-" + (expanded ? "down" : "right")}></span>
+		return <div className="arm-none-eabi-gdb-debug-expandable" data-expanded={expanded}>
+			<div className="arm-none-eabi-gdb-debug-expandable-header" onClick={this.onExpandChange.bind(this, name)}>
+				<span className={"arm-none-eabi-gdb-debug-toggle icon icon-chevron-" + (expanded ? "down" : "right")}></span>
 				{text}
 			</div>
-			<div className={`gdb-debug-expandable-body gdb-debug-panel-${name}`}>{content}</div>
+			<div className={`arm-none-eabi-gdb-debug-expandable-body arm-none-eabi-gdb-debug-panel-${name}`}>{content}</div>
 		</div>;
 	}
 
@@ -284,7 +284,7 @@ export default {
 		);
 
 		const item = document.createElement("div");
-		item.className = "gdb-debug-panel";
+		item.className = "arm-none-eabi-gdb-debug-panel";
 		atomPanel = atom.workspace.addRightPanel({ item, visible: store.getState().panel.visible });
 
 		ReactDOM.render(

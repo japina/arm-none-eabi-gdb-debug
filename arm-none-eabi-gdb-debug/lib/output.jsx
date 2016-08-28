@@ -23,14 +23,14 @@ class Output extends React.Component {
 		return <div className="gdb-debug-output">
 			<div className="gdb-debug-output-header">
 				<h5 className="text">Output messages</h5>
-				<button type="button" className="btn gdb-debug-btn-flat" onClick={this.props.onCleanClick}>
+				<button type="button" className="btn arm-none-eabi-gdb-debug-btn-flat" onClick={this.props.onCleanClick}>
 					<span className="icon-circle-slash" title="clean"></span>
 				</button>
-				<button type="button" className="btn gdb-debug-btn-flat" onClick={this.props.onCloseClick}>
+				<button type="button" className="btn arm-none-eabi-gdb-debug-btn-flat" onClick={this.props.onCloseClick}>
 					<span className="icon-x" title="close"></span>
 				</button>
 			</div>
-			<div className="gdb-debug-output-list" ref="list" tabIndex={-1}>{items}</div>
+			<div className="arm-none-eabi-gdb-debug-output-list" ref="list" tabIndex={-1}>{items}</div>
 		</div>;
 	}
 }

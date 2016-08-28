@@ -147,7 +147,7 @@ function editors(state = {}, action) {
 }
 function panel(state, action) {
 	if (!state) {
-		state = { visible: atom.config.get("gdb-debug.panelInitialVisible") };
+		state = { visible: atom.config.get("arm-none-eabi-gdb-debug.panelInitialVisible") };
 	}
 	switch (action.type) {
 		case "TOGGLE_PANEL":

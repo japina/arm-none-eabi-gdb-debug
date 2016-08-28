@@ -11,7 +11,7 @@ export default {
 	activate(state) {
 		initialState = state;
 
-		require("atom-package-deps").install("gdb-debug").then(() => {
+		require("atom-package-deps").install("arm-none-eabi-gdb-debug").then(() => {
 			dependenciesInstalled = true;
 			this.start();
 			return true;
@@ -53,7 +53,7 @@ export default {
 
 		subscriptions = new CompositeDisposable(
 			atom.commands.add("atom-workspace", {
-				"gdb-debug:toggle-panel": commands.get("toggle-panel").action
+				"arm-none-eabi-gdb-debug:toggle-panel": commands.get("toggle-panel").action
 			}),
 			store,
 			editors,
@@ -63,7 +63,7 @@ export default {
 
 		// start observing config values
 		subscriptions.add(
-			atom.config.observe("gdb-debug.limitCommandsToGo", this.observeCommandsLimit.bind(this))
+			atom.config.observe("arm-none-eabi-gdb-debug.limitCommandsToGo", this.observeCommandsLimit.bind(this))
 		);
 	},
 	observeCommandsLimit(limitCommandsToGo) {
