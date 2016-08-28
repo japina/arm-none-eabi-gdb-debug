@@ -50,10 +50,10 @@ function run(file) {
 			return;
 		}
 
-		addOutputMessage("gdb-debug", `Starting gdb with "${file}"`);
+		addOutputMessage("arm-none-eabi-gdb-debug", `Starting arm-none-eabi-gdb with "${file}"`);
 
 		isRunning = false;
-		process = spawn("gdb", [outFile, "--interpreter=mi2"], { cwd });
+		process = spawn("arm-none-eabi-gdb", [outFile, "--interpreter=mi2"], { cwd });
 
 		wait().then(() => {
 			store.dispatch({ type: "SET_STATE", state: "started" });
@@ -100,11 +100,11 @@ export function addBreakpoint(file, line) {
 
 	// note: gdb requires 1 indexed line numbers whereas atom has 0 indexed
 	const fileAndLine = `${file}:${line + 1}`;
-	addOutputMessage("gdb-debug", `Adding breakpoint: ${fileAndLine}`);
+	addOutputMessage("arm-none-eabi-gdb-debug", `Adding breakpoint: ${fileAndLine}`);
 	store.dispatch({ type: "ADD_BREAKPOINT", bp: { file, line } });
 	return _addBreakpoint(file, line + 1).then((bp) => {
 		if (bp) {
-			addOutputMessage("gdb-debug", `Added breakpoint: ${fileAndLine}`);
+			addOutputMessage("arm-none-eabi-gdb-debug", `Added breakpoint: ${fileAndLine}`);
 			store.dispatch({ type: "ADD_BREAKPOINT", bp: { file, line, id: bp.number, state: "valid" } });
 		}
 	});
